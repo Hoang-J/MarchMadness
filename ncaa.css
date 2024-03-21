@@ -1,11 +1,28 @@
+.bracket1 {
+    border: 2px solid blue;
+    width: 300px;
+    text-align: center;
+}
+
 .bracket2 {
-    border: 2px solid white;
+    border: 2px solid orange;
+    width: 300px;
+    text-align: center;
 }
 
 .bracket3 {
     border: 2px solid green;
+    width: 300px;
+    text-align: center;
 }
 
 .bracket4 {
     border: 2px solid red;
+    width: 300px;
+    text-align: center;
+}
+
+.score {
+
+    
 }
