@@ -400,10 +400,17 @@ let ncaaEast = [
     },
 ];
 
+// South Region
 function getBracket() {
     getBracketSouth();
     function getBracketSouth() {
 
+        let mainDiv = document.createElement('div');
+        mainDiv.setAttribute('class', 'mainDivSouth')
+        document.body.appendChild(mainDiv);
+        round2MainDiv = document.createElement('div')
+        round2MainDiv.setAttribute('class', 'round2mainDivSouth')
+        document.body.appendChild(round2MainDiv);
         for(i = 0; i < ncaaSouth.length; i += 2) {
             let div = document.createElement('div')
             div.setAttribute('class', 'bracket1');
@@ -419,25 +426,36 @@ function getBracket() {
             teamBSouthScore.innerText = ncaaSouth[i + 1].finalScore;
             teamBSouthScore.setAttribute('class', 'score');
             
-            document.body.appendChild(div);
+            
+            mainDiv.appendChild(div);
             div.appendChild(teamASouthTag);
             teamASouthTag.append(teamASouthScore);
             div.appendChild(teamBSouthTag);
             teamBSouthTag.append(teamBSouthScore);
 
             //round 2 brackets
+            // round2MainDiv = document.createElement('div')
+            // document.body.appendChild(round2MainDiv);
             round2Div = document.createElement('div');
             
             if(teamASouthScore.innerText > teamBSouthScore.innerText) {
                 let round2TeamA = document.createElement('p');
-                round2TeamA.innerText = ncaaSouth[i].teamName;
+                round2TeamA.innerText = ncaaSouth[i].seedNumber + " " + ncaaSouth[i].teamName + " " + ncaaSouth[i].finalScore;
                 round2Div.appendChild(round2TeamA);
-            } else if (teamASouthScore.innerText < teamBSouthScore.innerText) {
                 let round2TeamB = document.createElement('p');
-                round2TeamB.innerText = ncaaSouth[i + 1].teamName;
+                round2TeamB.innerText = ncaaSouth[i + 1].seedNumber + " " + ncaaSouth[i + 1].teamName + " " + ncaaSouth[i + 1].finalScore;
+                round2TeamB.setAttribute('class', 'loser')
+                round2Div.appendChild(round2TeamB);
+            } else if (teamASouthScore.innerText < teamBSouthScore.innerText) {
+                let round2TeamA = document.createElement('p');
+                round2TeamA.innerText = ncaaSouth[i].seedNumber + " " + ncaaSouth[i].teamName + " " + ncaaSouth[i].finalScore;
+                round2TeamA.setAttribute('class', 'loser');
+                round2Div.appendChild(round2TeamA);
+                let round2TeamB = document.createElement('p');
+                round2TeamB.innerText = ncaaSouth[i + 1].seedNumber + " " + ncaaSouth[i + 1].teamName + " " + ncaaSouth[i + 1].finalScore;
                 round2Div.appendChild(round2TeamB);
             };
-            document.body.appendChild(round2Div);
+            round2MainDiv.appendChild(round2Div);
             
             
         }
@@ -461,9 +479,17 @@ function getBracket() {
         
     // }
 
+    //Midwest Region
     getBracketMidwest();
     function getBracketMidwest() {
 
+        let mainDiv = document.createElement('div');
+        mainDiv.setAttribute('class', 'mainDivMidwest')
+        document.body.appendChild(mainDiv);
+        round2MainDiv = document.createElement('div')
+        round2MainDiv.setAttribute('class', 'round2mainDivMidwest')
+        document.body.appendChild(round2MainDiv);
+        
         for(i = 0; i < ncaaMidwest.length; i += 2) {
             let div = document.createElement('div');
             div.setAttribute('class', 'bracket2');
@@ -480,7 +506,7 @@ function getBracket() {
             teamBMidwestScore.innerText = ncaaMidwest[i + 1].finalScore;
             teamBMidwestScore.setAttribute('class', 'score');
             
-            document.body.appendChild(div);
+            mainDiv.appendChild(div);
             div.appendChild(teamAMidwestTag);
             teamAMidwestTag.append(teamAMidwestScore);
             div.appendChild(teamBMidwestTag);
@@ -491,20 +517,35 @@ function getBracket() {
             
             if(teamAMidwestScore.innerText > teamBMidwestScore.innerText) {
                 let round2TeamA = document.createElement('p');
-                round2TeamA.innerText = ncaaMidwest[i].teamName;
+                round2TeamA.innerText = ncaaMidwest[i].seedNumber + " " + ncaaMidwest[i].teamName + " " + ncaaMidwest[i].finalScore;
                 round2Div.appendChild(round2TeamA);
-            } else if (teamAMidwestScore.innerText < teamBMidwestScore.innerText) {
                 let round2TeamB = document.createElement('p');
-                round2TeamB.innerText = ncaaMidwest[i + 1].teamName;
+                round2TeamB.innerText = ncaaMidwest[i + 1].seedNumber + " " + ncaaMidwest[i + 1].teamName + " " + ncaaMidwest[i + 1].finalScore;
+                round2TeamB.setAttribute('class', 'loser');
+                round2Div.appendChild(round2TeamB);
+            } else if (teamAMidwestScore.innerText < teamBMidwestScore.innerText) {
+                let round2TeamA = document.createElement('p');
+                round2TeamA.innerText = ncaaMidwest[i].seedNumber + " " + ncaaMidwest[i].teamName + " " + ncaaMidwest[i].finalScore;
+                round2TeamA.setAttribute('class', 'loser')
+                round2Div.appendChild(round2TeamA);
+                let round2TeamB = document.createElement('p');
+                round2TeamB.innerText = ncaaMidwest[i + 1].seedNumber + " " + ncaaMidwest[i + 1].teamName + " " + ncaaMidwest[i + 1].finalScore;
                 round2Div.appendChild(round2TeamB);
             };
-            document.body.appendChild(round2Div);
+            round2MainDiv.appendChild(round2Div);
             
         }
     }
-
+    // East Region
     getBracketEast();
     function getBracketEast() {
+
+        let mainDiv = document.createElement('div');
+        mainDiv.setAttribute('class', 'mainDivEast')
+        document.body.appendChild(mainDiv);
+        round2MainDiv = document.createElement('div')
+        round2MainDiv.setAttribute('class', 'round2mainDivEast')
+        document.body.appendChild(round2MainDiv);
 
         for(i = 0; i < ncaaEast.length; i += 2) {
             let div = document.createElement('div')
@@ -521,7 +562,7 @@ function getBracket() {
             teamBEastScore.innerText = ncaaEast[i + 1].finalScore;
             teamBEastScore.setAttribute('class', 'score');
             
-            document.body.appendChild(div);
+            mainDiv.appendChild(div);
             div.appendChild(teamAEastTag);
             teamAEastTag.append(teamAEastScore);
             div.appendChild(teamBEastTag);
@@ -532,20 +573,35 @@ function getBracket() {
             
             if(teamAEastScore.innerText > teamBEastScore.innerText) {
                 let round2TeamA = document.createElement('p');
-                round2TeamA.innerText = ncaaEast[i].teamName;
+                round2TeamA.innerText = ncaaEast[i].seedNumber + " " + ncaaEast[i].teamName + " " + ncaaEast[i].finalScore; 
                 round2Div.appendChild(round2TeamA);
-            } else if (teamAEastScore.innerText < teamBEastScore.innerText) {
                 let round2TeamB = document.createElement('p');
-                round2TeamB.innerText = ncaaEast[i + 1].teamName;
+                round2TeamB.innerText = ncaaEast[i + 1].seedNumber + " " + ncaaEast[i + 1].teamName + " " + ncaaEast[i + 1].finalScore;
+                round2TeamB.setAttribute('class', 'loser')
+                round2Div.appendChild(round2TeamB);
+            } else if (teamAEastScore.innerText < teamBEastScore.innerText) {
+                let round2TeamA = document.createElement('p');
+                round2TeamA.innerText = ncaaEast[i].seedNumber + " " + ncaaEast[i].teamName + " " + ncaaEast[i].finalScore; 
+                round2TeamA.setAttribute('class', 'loser')
+                round2Div.appendChild(round2TeamA);
+                let round2TeamB = document.createElement('p');
+                round2TeamB.innerText = ncaaEast[i + 1].seedNumber + " " + ncaaEast[i + 1].teamName + " " + ncaaEast[i + 1].finalScore;
                 round2Div.appendChild(round2TeamB);
             };
-            document.body.appendChild(round2Div);
+            round2MainDiv.appendChild(round2Div);
             
         }
     }
 
     getBracketWest();
     function getBracketWest() {
+
+        let mainDiv = document.createElement('div');
+        mainDiv.setAttribute('class', 'mainDivWest')
+        document.body.appendChild(mainDiv);
+        round2MainDiv = document.createElement('div')
+        round2MainDiv.setAttribute('class', 'round2mainDivWest')
+        document.body.appendChild(round2MainDiv);
 
         for(i = 0; i < ncaaWest.length; i += 2) {
             let div = document.createElement('div')
@@ -562,7 +618,7 @@ function getBracket() {
             teamBWestScore.innerText = ncaaWest[i + 1].finalScore;
             teamBWestScore.setAttribute('class', 'score');
             
-            document.body.appendChild(div);
+            mainDiv.appendChild(div);
             div.appendChild(teamAWestTag);
             teamAWestTag.append(teamAWestScore);
             div.appendChild(teamBWestTag);
@@ -573,14 +629,22 @@ function getBracket() {
             
             if(teamAWestScore.innerText > teamBWestScore.innerText) {
                 let round2TeamA = document.createElement('p');
-                round2TeamA.innerText = ncaaWest[i].teamName;
+                round2TeamA.innerText = ncaaWest[i].seedNumber + " " + ncaaWest[i].teamName + " " + ncaaWest[i].finalScore;
                 round2Div.appendChild(round2TeamA);
-            } else if (teamAWestScore.innerText < teamBWestScore.innerText) {
                 let round2TeamB = document.createElement('p');
-                round2TeamB.innerText = ncaaWest[i + 1].teamName;
+                round2TeamB.innerText = ncaaWest[i + 1].seedNumber + " " + ncaaWest[i + 1].teamName + " ".ncaaWest[i + 1].finalScore;
+                round2TeamB.setAttribute('class', 'loser')
+                round2Div.appendChild(round2TeamB);
+            } else if (teamAWestScore.innerText < teamBWestScore.innerText) {
+                let round2TeamA = document.createElement('p');
+                round2TeamA.innerText = ncaaWest[i].seedNumber + " " + ncaaWest[i].teamName + " " + ncaaWest[i].finalScore;
+                round2TeamA.setAttribute('class', 'loser')
+                round2Div.appendChild(round2TeamA);
+                let round2TeamB = document.createElement('p');
+                round2TeamB.innerText = ncaaWest[i + 1].seedNumber + " " + ncaaWest[i + 1].teamName + " " + ncaaWest[i + 1].finalScore;
                 round2Div.appendChild(round2TeamB);
             };
-            document.body.appendChild(round2Div);
+            round2MainDiv.appendChild(round2Div);
             
         }
     }
